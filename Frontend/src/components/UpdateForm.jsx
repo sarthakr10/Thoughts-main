@@ -5,14 +5,12 @@ import { useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
-
 const UpdateForm = () => {
   const { title, description, image, _id } = useSelector(
     (store) => store.blog.updateBlogInfo
   );
   const { register, handleSubmit, setValue } = useForm();
   const navigate = useNavigate();
-  
   const onSubmit = async (data) => {
     const response = await fetch(
       `http://localhost:4040/api/v1/updateBlog/${_id}`,
@@ -25,8 +23,8 @@ const UpdateForm = () => {
       }
     );
     const message = await response.json();
-    if (message.success) {
-      toast.success(message.message, {
+    if (message.sucess) {
+      toast.success(message.massage, {
         position: "top-center",
         autoClose: 5000,
         hideProgressBar: false,
@@ -38,8 +36,9 @@ const UpdateForm = () => {
       });
       setTimeout(() => {
         navigate("/home");
-      }, 4000);
-    } else {
+      }, 2000);
+    }
+    if (!message.sucess) {
       toast.error(message.message, {
         position: "top-center",
         autoClose: 5000,
@@ -52,17 +51,16 @@ const UpdateForm = () => {
       });
     }
   };
-
   useEffect(() => {
+    // Set initial values for the form fields
     setValue("title", title);
     setValue("description", description);
     setValue("image", image);
-  }, [setValue, title, description, image]);
-
-  const handleClose = () => {
+    // Add more fields as needed
+  }, []);
+  const handleClose = ()=>{
     navigate("/home");
-  };
-
+  }
   return (
     <div className="absolute top-36 left-[36%] w-[27%] bg-black p-8 rounded-lg">
       <button
@@ -72,38 +70,39 @@ const UpdateForm = () => {
         X
       </button>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="mb-4 lg:mb-7">
-          <label htmlFor="title" className="block text-white mb-2">Title</label>
+        <div class="mb-4 lg:mb-7">
+        <label htmlFor="title" className="block text-white mb-2">Title</label>
           <input
             {...register("title")}
             type="text"
-            id="title"
-            className="w-full px-4 py-4 bg-white rounded-lg lg:py-5 dark:text-gray-300 dark:bg-gray-700"
+            class="w-full px-4 py-4 bg-white rounded-lg lg:py-5 dark:text-gray-300 dark:bg-gray-700 "
             placeholder="Enter your title"
           />
         </div>
-        <div className="mb-4 lg:mb-7">
+        <div class="mb-4 lg:mb-7">
           <label htmlFor="description" className="block text-white mb-2">Description</label>
-          <input
-            {...register("description")}
-            type="text"
-            id="description"
-            className="w-full px-4 py-4 bg-white rounded-lg lg:py-5 dark:text-gray-300 dark:bg-gray-700"
-            placeholder="Enter description"
-          />
+          <div class="relative flex items-center">
+            <input
+              {...register("description")}
+              type="text"
+              class="w-full px-4 py-4 bg-white rounded-lg lg:py-5 dark:text-gray-300 dark:bg-gray-700 "
+              placeholder="Enter description"
+            />
+          </div>
         </div>
-        <div className="mb-4 lg:mb-7">
+        <div class="mb-4 lg:mb-7">
           <label htmlFor="image" className="block text-white mb-2">Image Link</label>
-          <input
-            {...register("image")}
-            type="text"
-            id="image"
-            className="w-full px-4 py-4 bg-white rounded-lg lg:py-5 dark:text-gray-300 dark:bg-gray-700"
-            placeholder="Enter image link"
-          />
+          <div class="relative flex items-center">
+            <input
+              {...register("image")}
+              type="text"
+              class="w-full px-4 py-4 bg-white rounded-lg lg:py-5 dark:text-gray-300 dark:bg-gray-700 "
+              placeholder="Enter imageLink..."
+            />
+          </div>
         </div>
         <button
-          className="w-full px-4 py-4 text-sm font-bold text-gray-300 uppercase bg-blue-600 rounded-md lg:text-lg dark:text-gray-300 dark:bg-blue-800 hover:bg-blue-700 dark:hover:bg-blue-900"
+          class="w-full px-4 py-4 text-sm font-bold text-gray-300 uppercase bg-blue-600 rounded-md lg:text-lg dark:text-gray-300 dark:bg-blue-800 hover:bg-blue-700 dark:hover:bg-blue-900 "
           type="submit"
         >
           UPDATE

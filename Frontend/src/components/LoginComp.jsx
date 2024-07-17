@@ -34,7 +34,7 @@ const LoginComp = () => {
       setTimeout(() => {
         dispatch(setIsLoggedIn());
         navigate("/home");
-      }, 3000);
+      }, 2000);
     }
     if (!message.sucess) {
       toast.error(message.message, {
