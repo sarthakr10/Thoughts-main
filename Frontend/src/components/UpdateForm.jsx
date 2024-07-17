@@ -1,14 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import { useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 const UpdateForm = () => {
   const { title, description, image, _id } = useSelector(
     (store) => store.blog.updateBlogInfo
   );
+  const [close ,setClose]=useState(true);
   const { register, handleSubmit, setValue } = useForm();
   const navigate = useNavigate();
   const onSubmit = async (data) => {
@@ -59,10 +60,10 @@ const UpdateForm = () => {
     // Add more fields as needed
   }, []);
   const handleClose = ()=>{
-    navigate("/home");
+    setClose(!close);
   }
   return (
-    <div className="absolute top-36 left-[36%] w-[27%] bg-black p-8 rounded-lg">
+   close && <div className="absolute top-36 left-[36%] w-[27%] bg-black p-8 rounded-lg">
       <button
         onClick={handleClose}
         className="absolute top-2 right-2 text-white bg-red-500 hover:bg-red-700 px-2 py-1 rounded-full"
