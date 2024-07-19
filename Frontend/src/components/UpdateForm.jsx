@@ -9,7 +9,11 @@ const UpdateForm = () => {
   const { title, description, image, _id } = useSelector(
     (store) => store.blog.updateBlogInfo
   );
+
+  
   const [close ,setClose]=useState(true);
+
+
   const { register, handleSubmit, setValue } = useForm();
   const navigate = useNavigate();
   const onSubmit = async (data) => {
