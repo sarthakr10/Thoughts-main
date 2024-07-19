@@ -131,7 +131,7 @@ const LoginComp = () => {
                     </svg>
                   </span>
                   <h2 className="text-4xl font-bold text-center text-gray-100 dark:text-gray-400 mb-9 lg:text-6xl ">
-                    Are you ready to login our account?
+                    Are you ready to login your account?
                   </h2>
                   <p className="text-xl font-semibold text-center text-gray-200 dark:text-gray-500 ">
                     You are welcome here!

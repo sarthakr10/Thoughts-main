@@ -156,19 +156,18 @@ const Create = () => {
                     />
 
                     <span className="text-sm text-white">
-                      Are you sure want to publish.
+                      Are you sure you want to publish.
                     </span>
                   </label>
                 </div>
 
                 <div className="col-span-6">
                   <p className="text-sm text-white">
-                    you post can follow our, you agree to our
+                   you agree to our{" "}
                     <a href="#" className="text-white underline">
-                      {" "}
-                      terms and conditions{" "}
+                      terms and conditions
                     </a>
-                    and
+                    {" "}and{" "}
                     <a href="#" className="text-white underline">
                       privacy policy
                     </a>
