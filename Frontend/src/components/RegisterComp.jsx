@@ -7,7 +7,7 @@ const RegisterComp = () => {
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
   const onSubmit = async (data) => {
-    const response = await fetch("http://localhost:4040/api/v1/register", {
+    const response = await fetch("https://thoughts-main-backend.onrender.com/api/v1/register", {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
