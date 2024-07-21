@@ -18,7 +18,7 @@ const UpdateForm = () => {
   const navigate = useNavigate();
   const onSubmit = async (data) => {
     const response = await fetch(
-      `http://localhost:4040/api/v1/updateBlog/${_id}`,
+      `https://thoughts-main-backend.onrender.com/api/v1/updateBlog/${_id}`,
       {
         method: "PUT",
         body: JSON.stringify(data),
