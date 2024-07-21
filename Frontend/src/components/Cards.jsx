@@ -24,7 +24,7 @@ const Cards = ({
   const [updateForm, setUpdateForm] = useState(false);
   const handleDelete = async () => {
     const response = await fetch(
-      `http://localhost:4040/api/v1/deleteBlog/${blogid}`,
+      `https://thoughts-main-backend.onrender.com/api/v1/deleteBlog/${blogid}`,
       {
         method: "DELETE",
       }
@@ -60,7 +60,7 @@ const Cards = ({
   };
   const handleUpdtae = async () => {
     const response = await fetch(
-      `http://localhost:4040/api/v1/singleBlog/${blogid}`
+      `https://thoughts-main-backend.onrender.com/api/v1/singleBlog/${blogid}`
     );
     const data = await response.json();
 
