@@ -11,7 +11,7 @@ const LoginComp = () => {
   const dispatch = useDispatch();
 
   const onSubmit = async (data) => {
-    const response = await fetch("http://localhost:4040/api/v1/login", {
+    const response = await fetch("https://thoughts-main-backend.onrender.com/api/v1/login", {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
