@@ -9,7 +9,7 @@ export const useFetchUserBlogs = (_id) => {
   }, []);
   const fetchBlogs = async () => {
     const response = await fetch(
-      "http://localhost:4040/api/v1/userBlogs/" + _id
+      "https://thoughts-main-backend.onrender.com/api/v1/userBlogs/" + _id
     );
     const data = await response.json();
 
