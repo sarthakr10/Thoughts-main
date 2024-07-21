@@ -8,7 +8,7 @@ export const useFetchAllBlogs = () => {
     fetchBlogs();
   }, []);
   const fetchBlogs = async () => {
-    const response = await fetch("http://localhost:4040/api/v1/allBlogs");
+    const response = await fetch("https://thoughts-main-backend.onrender.com/api/v1/allBlogs");
     const data = await response.json();
 
     dispatch(setAllBlogs(data));
