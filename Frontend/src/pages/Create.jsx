@@ -9,7 +9,7 @@ const Create = () => {
   const id = useSelector((store) => store.config.userInfo._id);
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = async (data) => {
-    const response = await fetch("http://localhost:4040/api/v1/createBlog", {
+    const response = await fetch("https://thoughts-main-backend.onrender.com/api/v1/createBlog", {
       method: "POST",
       body: JSON.stringify({ ...data, uid: id }),
       headers: {
