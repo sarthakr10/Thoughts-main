@@ -9,7 +9,7 @@
     "dev": "nodemon",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "shivam kumar",
+  "author": "Sarthak Rastogi",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.1",
